@@ -3,15 +3,19 @@ python:
   - "3.6"
   - "3.7"
   - "3.8"
-  - "nightly"
+  - nightly
 matrix:
   allow_failures:
-    - python: "nightly"
+    - python: nightly
 branches:
   only:
     - master
     - dev
 install:
   - pip install -r requirements.txt
-# command to run tests
 script: sh scripts/test.sh
+deploy:
+  provider: heroku
+  app: aqueous-mountain-83136
+  api_key:
+    secure: XRIUr7DDSPQ31f65Y33yW+gQFK6kjEQpC/hMdY9IU9YYaVE99dSPt/C9L91Jcyun5D872qrqugXDoqbbx7AIBpFOEl8647BNkHhO1letq3Ob+tIVzhu7oIzse+5L6q1u552HI5uaaWTBPBfUHVBTpqjxIo4BPNQNeMI0Cm5/h3bRSE1OY9tbSRNGvj3mHfSpv90bU/ki5BShvFoMS6bRa9yKKvLuU+cgyC/4GDG0sAzOhn7hOu4hrpuNEbMCO++WTE4hg04vfWiMo6gC1/L+2uRh/N/Wcp2NbmrMDBIi+vjIlOmyIyVpXrz4HEN9VdUMyF59DlQZx6dtMVXtnadjyVZ5Q9Kq2OqYmHQPiiQPMkMtao7+GWAn5rbTf0CR/YFOIUTU2PLLN44JoPmKXekSeYUFdDhSFrRShZNvKxXPYNr53on5E52nNQAvvYIWjWrBjSq4amk5hYXhR05wAxcHMQ8H7x+SmleEpwPRTYde11D2jIDIbmLxlTPQKlT8X7dK6+RUPNTUFfSbp08DcH8O3vYcQMZkwQf2x3v9MDdoKghOplBlDX+3Z/uDIiQJ5DmUuwt7b9qLVHqlOKAp6lEOOhrvfDpeXc3AjtHydxkUJslswGM7K6DjXUO7j1RyGc0jl3jtaVuHVQ98bT+DpB1bhZK4Pu1cE5cXeE9ANBdFsuY=
